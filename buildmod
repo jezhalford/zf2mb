@@ -1,0 +1,22 @@
+#!/usr/bin/php
+<?php
+require '../../autoload.php';
+
+$modCC = $argv[1];
+
+echo PHP_EOL . 'Building module ' . $modCC . '...'. PHP_EOL;
+
+$filter  = new Zend\Filter\Word\CamelCaseToDash();
+
+$modDS = strtolower($filter->filter($modCC));
+
+$dirs = array(
+	"$modCC/{config,src/Album/{Controller,Form,Model},view/album/album}",
+	
+
+);
+
+//mkdir -pv Album/{config,src/Album/{Controller,Form,Model},view/album/album}
+
+
+echo PHP_EOL;
