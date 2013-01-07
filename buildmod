@@ -2,6 +2,10 @@
 <?php
 require '../../autoload.php';
 
+$x = new Zf2mb\Filesystem();
+
+exit;
+
 $modCC = $argv[1];
 
 echo PHP_EOL . 'Building module ' . $modCC . '...'. PHP_EOL;
@@ -11,12 +15,22 @@ $filter  = new Zend\Filter\Word\CamelCaseToDash();
 $modDS = strtolower($filter->filter($modCC));
 
 $dirs = array(
-	"$modCC/{config,src/Album/{Controller,Form,Model},view/album/album}",
-	
-
+	"$modCC/config",
+	"$modCC/src/$modCC/Controller",
+	"$modCC/src/$modCC/Form",
+	"$modCC/src/$modCC/Model",
+	"$modCC/view/$modDS/$modDS"
 );
 
-//mkdir -pv Album/{config,src/Album/{Controller,Form,Model},view/album/album}
+$root = realpath(__DIR__ . '/../../../module/');
+
+echo 'Creating module in ' . $root . PHP_EOL;
+
+foreach($dirs as $dir) {
+	$fullDir = str_replace('/', DIRECTORY_SEPARATOR, $root . '/' . $dir);
+	echo 'Creating ' . $fullDir . '...' . PHP_EOL;
+	mkdir($fullDir, 0777, true);
+}
 
 
 echo PHP_EOL;

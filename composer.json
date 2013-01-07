@@ -1,4 +1,15 @@
 {
     "name": "jezhalford/zf2mb",
-    "description": "Tool for creating the base classes and directors for a Zend Framework 2 Module"
+    "description": "Tool for creating the base classes and directories for a Zend Framework 2 Module",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "zfb/zfb-vm": "dev-master",
+        "mockery/mockery": ">=0.7.2"
+    }
+    "autoload": {
+        "psr-0": {
+            "Zf2mb" : "src/"
+        }
+    }
 }
