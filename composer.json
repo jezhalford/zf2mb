@@ -6,7 +6,7 @@
         "zendframework/zendframework": "2.*",
         "zfb/zfb-vm": "dev-master",
         "mockery/mockery": ">=0.7.2"
-    }
+    },
     "autoload": {
         "psr-0": {
             "Zf2mb" : "src/"
